@@ -26,6 +26,9 @@ body {
   color: #000000;
   transition: all 0.3s linear;
 }
+.header .logo {
+  width: 120px;
+}
 .header-mobile {
   display: none;
 }
@@ -60,7 +63,7 @@ body {
 
 .firstscreen {
   height: 100vh;
-  background: url("images/bg.svg") no-repeat center;
+  background: url("../images/bg.svg") no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   padding-top: 136px;
@@ -220,6 +223,44 @@ h3 {
   transform: translateY(100px);
   transition: transform 1.3s, opacity;
 }
+.concept-line__mobile {
+  display: none;
+  justify-content: flex-end;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  row-gap: 20px;
+  margin-top: 40px;
+}
+.concept-line__mobile .item {
+  display: flex;
+  min-width: 260px;
+}
+.concept-line__mobile .item .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.concept-line__mobile .item .wrap img {
+  margin: 0 15px 10px;
+}
+.concept-line__mobile .item .wrap .dotted {
+  border-left: 1px dashed #E0D582;
+  height: 35px;
+}
+.concept-line__mobile .item .text {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 148%;
+  color: #FFFFFF;
+  margin-right: 30px;
+}
+.concept-line__mobile .item .text span {
+  font-weight: 700;
+}
 .concept .line {
   padding: 300px calc(50% - 578px) 55px;
   display: flex;
@@ -371,6 +412,9 @@ h3 {
   margin-top: 80px;
   padding: 0 calc(50% - 578px);
 }
+.astra .feed .item.img {
+  display: none;
+}
 .astra .feed .item.fading {
   opacity: 0;
   transform: translateY(150px);
@@ -422,7 +466,7 @@ h3 {
 }
 
 .planet {
-  background: url("images/bg-planet.svg");
+  background: url("../images/bg-planet.svg");
   padding: 226px 0 115px;
   display: flex;
   flex-direction: column;
@@ -707,25 +751,55 @@ h3 {
   .header-mobile__bottom .header-book {
     width: 190px;
     margin: 30px auto 0;
+    text-transform: uppercase;
+    padding: 0 17px;
   }
-}
-@media (max-width: 1100px) {
-  .astra {
-    display: none;
+  .bg-girl {
+    width: 1440px;
+    left: calc(50% - 600px - 147px);
+  }
+  .hand {
+    width: 250px;
+    left: calc(50% - 480px - 69px);
+  }
+  .concept .line {
+    padding-top: 250px;
+  }
+  .astra .feed {
+    -moz-column-gap: 40px;
+         column-gap: 40px;
   }
 }
 @media (max-width: 1023px) {
   .how {
     padding: 120px 30px 0;
   }
+  .concept {
+    padding-bottom: 450px;
+  }
   .concept .feed {
     padding: 0 30px;
   }
   .concept .line {
-    padding: 200px 30px 55px;
+    display: none;
+  }
+  .concept-line__mobile {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bg-girl {
+    left: -9px;
+  }
+  .hand {
+    left: 183px;
   }
   .astra .feed {
     padding: 0 30px;
+  }
+  .astra .feed .item img {
+    width: 100%;
   }
   .astra .separator-wrap {
     padding: 0 30px;
@@ -791,11 +865,30 @@ h3 {
   }
 }
 @media (max-width: 767px) {
-  .astra {
-    display: none;
-  }
   .firstscreen h1 {
     font-size: 64px;
+  }
+  .astra .separator-wrap {
+    display: none;
+  }
+  .astra .feed {
+    display: flex;
+    flex-direction: column;
+  }
+  .astra .feed.first {
+    display: none;
+  }
+  .astra .feed.second .item {
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+  .astra .feed.second .item.img {
+    display: flex;
+  }
+  .astra .feed.second .item.img img {
+    width: 140px;
   }
   .perks .feed {
     grid-template-columns: 1fr;
@@ -808,12 +901,32 @@ h3 {
     text-align: center;
   }
 }
+@media (max-width: 640px) {
+  .concept {
+    padding-bottom: 350px;
+  }
+  .bg-girl {
+    width: 1078px;
+    left: -21px;
+  }
+  .hand {
+    width: 237px;
+    left: 91px;
+    bottom: -135px;
+  }
+}
 @media (max-width: 500px) {
   .how {
     padding: 80px 15px 0;
   }
   h2 {
     font-size: 24px;
+  }
+  .astra .feed.first {
+    row-gap: 100px;
+  }
+  .astra .feed.first img {
+    width: 100px;
   }
   .text-description {
     font-size: 16px;
@@ -861,5 +974,30 @@ h3 {
   }
   .concept .feed .item .text-description br {
     display: none;
+  }
+}
+@media (max-width: 480px) {
+  .concept {
+    padding-bottom: 300px;
+  }
+  .bg-girl {
+    width: 847px;
+    left: -60px;
+  }
+  .hand {
+    width: 187px;
+    left: 29px;
+    bottom: -107px;
+  }
+}
+@media (max-width: 380px) {
+  .firstscreen h1 {
+    font-size: 48px;
+  }
+  .firstscreen p {
+    font-size: 16px;
+  }
+  .astra .feed.second .item.img img {
+    width: 100px;
   }
 }/*# sourceMappingURL=styles.css.map */
