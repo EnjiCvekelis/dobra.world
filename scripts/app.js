@@ -49,40 +49,26 @@ document.addEventListener('DOMContentLoaded', function(){
         document.getElementById('headerMobile').classList.toggle('active');
     }) 
 
-    // function isElementVisible(el) {
-    //     var rect     = el.getBoundingClientRect(),
-    //         vWidth   = window.innerWidth || document.documentElement.clientWidth,
-    //         vHeight  = window.innerHeight || document.documentElement.clientHeight,
-    //         efp      = function (x, y) { return document.elementFromPoint(x, y) };     
-    
-    //     // Return false if it's not in the viewport
-    //     if (rect.right < 0 || rect.bottom < 0 
-    //             || rect.left > vWidth || rect.top > vHeight)
-    //         return false;
-    
-    //     // Return true if any of its four corners are visible
-    //     return (
-    //           el.contains(efp(rect.left,  rect.top))
-    //       ||  el.contains(efp(rect.right, rect.top))
-    //       ||  el.contains(efp(rect.right, rect.bottom))
-    //       ||  el.contains(efp(rect.left,  rect.bottom))
-    //     );
-    // }
-    
-    // let hand = document.getElementById("hand");
-    // let feed = document.getElementById("concept");
-    // // let rect = hand.getBoundingClientRect();
-    // let rect1 = feed.getBoundingClientRect();
-    // window.addEventListener("scroll", function() {
-    //     // let max = rect.top - 90;
-    //     let min = rect1.top + 90;
-    //     let aligner = min +300;
-    //     let test = isElementVisible(feed);
-    //     console.log(test)
-    //     if(test) {
-    //         let rotation = aligner/window.pageYOffset*100-100;
-    //         hand.style.transform = "rotate("+rotation+"deg)";
-    //     }
-    // });
+    const removeActive = () => {
+        const tabs = document.querySelectorAll(".tablinks")
+        const pages = document.querySelectorAll(".tabcontent")
+        tabs.forEach(item => {
+            item.classList.remove('active')
+        })
+        pages.forEach(item => {
+            item.classList.remove('active')
+        })
+    }
+
+      const tabs = document.querySelectorAll(".tablinks")
+      tabs.forEach(item => {
+        item.addEventListener('click', () => {
+            removeActive()
+            let id = item.getAttribute('data-href')
+            document.getElementById(id).classList.add('active')
+            item.classList.add('active')
+        })
+      })
+
 });
 
